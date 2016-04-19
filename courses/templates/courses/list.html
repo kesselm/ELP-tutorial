@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<div class="module">
+    {% for course in courses %}
+    <div class="course-info">
+        <h2>
+            <a href="{% url 'courses:course_detail' course.id %}">{{ course.title }}</a>
+        </h2>
+        <p>
+            Published {{ course.publish }} by {{ course.author }}
+        </p>
+        {{ course.description|truncatewords:30|linebreaks }}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

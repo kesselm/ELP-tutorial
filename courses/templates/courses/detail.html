@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }}{% endblock %}
+{% block content %}
+<div class="module">
+    <h1>{{ course.title }}</h1>
+    <p class="date">
+        Published {{ course.publish }} by {{ course.author }}
+    </p>
+    {{ course.description|linebreaks }}
+</div>
+{% endblock %}
