@@ -8,10 +8,15 @@
             <a href="{% url 'courses:course_detail' course.id %}">{{ course.title }}</a>
         </h2>
         <p>
-            Published {{ course.publish }} by {{ course.author }}
+            Published {{ course.publish }} by {{ course.author }}; Groupe {{ course.group}}
         </p>
         {{ course.description|truncatewords:30|linebreaks }}
     </div>
     {% endfor %}
+    {% if perms.courses.add_course %}
+    <p>
+        <a href="{% url 'courses:course_create' %}" class="button">Create new course</a>
+    </p>
+    {% endif %}
 </div>
 {% endblock %}

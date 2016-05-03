@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'courses',
+    'user',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'courses:course_list'
 WSGI_APPLICATION = 'tutorial.wsgi.application'
 
 

@@ -7,5 +7,13 @@
         Published {{ course.publish }} by {{ course.author }}
     </p>
     {{ course.description|linebreaks }}
+    <p>
+        {% if perms.courses.change_course %}
+            <a href="{% url 'courses:course_edit' course.pk %}" class="button">Edit course</a>
+        {% endif %}
+        {% if perms.courses.delete_course %}
+            <a href="{% url 'courses:course_delete' course.pk %}" class="button">Delete course</a>
+        {% endif %}
+    </p>
 </div>
 {% endblock %}
